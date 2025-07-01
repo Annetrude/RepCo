@@ -1,6 +1,6 @@
-# My Project
+# Learning RepCo in the UBU workshop 
 
-Learning RepCo in the UBU workshop for the very first time
+for the very first time
 
 ## Usage
 
