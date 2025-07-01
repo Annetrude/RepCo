@@ -1,10 +1,10 @@
 # My Project
 
-This project template is a demonstration for the RepCo workshop.
+Learning RepCo in the UBU workshop for the very first time
 
 ## Usage
 
-Click "Use this template" at the top of this page to create a new repository with the same folder structure.
+
 
 ## Project Structure
 
