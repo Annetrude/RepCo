@@ -50,6 +50,7 @@ trait_summary_df %>%
   geom_col(fill = "pink") +
   coord_flip() +
   labs(title = "Frequency of Traits in Zoo Animals", x = "Trait", y = "Count")
+
 ```
 
 ## Traits by Animal Class
@@ -62,12 +63,15 @@ zoo_df_long <- zoo_df %>%
   group_by(type, trait) %>%
   summarize(mean_trait = mean(has_trait), .groups = "drop")
 
-ggplot(zoo_df_long, aes(x = type, y = trait, fill = mean_trait)) +
+heatmap_plot <- ggplot(zoo_df_long, aes(x = type, y = trait, fill = mean_trait)) +
   geom_tile(color = "white") +
   scale_fill_gradient(low = "white", high = "forestgreen") +
   theme_minimal(base_size = 10) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(title = "Trait Presence Across Animal Classes", x = "Animal Class", y = "Trait", fill = "Proportion")
+
+heatmap_plot
+ggsave("../results/trait_heatmap.pdf", plot = heatmap_plot, width = 8, height = 6)
 ```
 
 ## Session Info
