@@ -1,0 +1,77 @@
+---
+title: "Exploring Animal Traits in the Zoo Dataset"
+author: "Annetrude"
+date: "`r Sys.Date()`"
+output: 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(mlbench)
+library(janitor)
+```
+
+## Load and Clean the Data
+
+```{r load-data}
+data(Zoo)
+zoo_df <- as_tibble(Zoo) %>%
+  clean_names() %>%     # Makes variable names easier to use 
+  mutate(animal_name = rownames(Zoo)) #replacing the names by numbers
+```
+
+## Explore the Classes of Animals
+
+```{r class-distribution}
+zoo_df %>%
+  count(type) %>%
+  ggplot(aes(x = fct_reorder(type, n), y = n)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(title = "Number of Animals per Class", x = "Class", y = "Count")
+```
+
+## Which Traits Are Most Common?"
+```{r trait-summary, echo=TRUE}
+# Drop non-trait variables: animal name and class
+trait_cols <- zoo_df %>%
+  select(-animal_name, -type)
+
+trait_summary <- colSums(trait_cols)
+
+trait_summary_df <- tibble(
+  trait = names(trait_summary),
+  count = trait_summary
+)
+
+trait_summary_df %>%
+  ggplot(aes(x = fct_reorder(trait, count), y = count)) +
+  geom_col(fill = "pink") +
+  coord_flip() +
+  labs(title = "Frequency of Traits in Zoo Animals", x = "Trait", y = "Count")
+```
+
+## Traits by Animal Class
+
+Let’s compare traits across classes of animals (e.g. mammals vs. birds).
+
+```{r heatmap}
+zoo_df_long <- zoo_df %>%
+  pivot_longer(cols = -c(animal_name, type), names_to = "trait", values_to = "has_trait") %>%
+  group_by(type, trait) %>%
+  summarize(mean_trait = mean(has_trait), .groups = "drop")
+
+ggplot(zoo_df_long, aes(x = type, y = trait, fill = mean_trait)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient(low = "white", high = "forestgreen") +
+  theme_minimal(base_size = 10) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Trait Presence Across Animal Classes", x = "Animal Class", y = "Trait", fill = "Proportion")
+```
+
+## Session Info
+
+```{r session}
+sessionInfo()
+```
