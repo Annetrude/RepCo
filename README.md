@@ -1,3 +1,5 @@
+<a href="https://handle.stage.datacite.org/10.5072/zenodo.280966"><img src="https://sandbox.zenodo.org/badge/1011701727.svg" alt="DOI"></a>
+
 # This is my new readme file
 ...because I created a conflict 😁
 
