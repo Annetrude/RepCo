@@ -1,8 +1,9 @@
-# this is my new readme file
-because I created a conflict 😁
+# This is my new readme file
+...because I created a conflict 😁
 
 # Introduction
-THIS IS NOT MY DATA 
+THIS IS NOT MY DATA!
+
 In this project, we explore the `Zoo` dataset from the `mlbench` package. 
 It contains 101 animals and their traits, like whether they have feathers, lay eggs, or are predators. 
 Each animal is also labeled by class (e.g., mammal, bird, fish).
