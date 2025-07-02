@@ -27,6 +27,9 @@ The neccesary packages are included in the code.
 All the data is already embedded in the mlbench package, so once this has been installed you're good 
 to go.
 
+# Results
+The resulting image will be saved in the "results" folder as a pdf.
+
 # Ran under these conditions: 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
