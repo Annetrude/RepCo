@@ -21,7 +21,7 @@ Prerequisites:
 * library(mlbench)
 
 # How to run the program
-The main script is located in folder "R" and named "zoo_traits_analysis".
+The main script is located in folder "R" and named "Animal_traits".
 The neccesary packages are included in the code. 
 All the data is already embedded in the mlbench package, so once this has been installed you're good 
 to go.
