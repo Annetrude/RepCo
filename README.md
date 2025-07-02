@@ -16,6 +16,8 @@ I have use this dataset to practice:
 - Summarizing animal classes
 
 # Installation
+For your convenience, there is an R LOCK file stored in the folder "R"
+
 Prerequisites: 
 * RStudio
 * library(tidyverse)
