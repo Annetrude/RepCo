@@ -14,8 +14,17 @@ I have use this dataset to practice:
 - Creating plots to explore traits
 - Summarizing animal classes
 
-# What you need
-* it is written in RStudio
+# Installation
+Prerequisites: 
+* RStudio
+* library(tidyverse)
+* library(mlbench)
+
+# How to run the program
+The main script is located in folder "R" and named "zoo_traits_analysis".
+The neccesary packages are included in the code. 
+All the data is already embedded in the mlbench package, so once this has been installed you're good 
+to go.
 
 # Ran under these conditions: 
 attached base packages:
